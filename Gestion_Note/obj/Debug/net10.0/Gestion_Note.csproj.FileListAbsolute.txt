@@ -1,0 +1,14 @@
+D:\C#\Gestion_Note\Gestion_Note\bin\Debug\net10.0\Gestion_Note.exe
+D:\C#\Gestion_Note\Gestion_Note\bin\Debug\net10.0\Gestion_Note.deps.json
+D:\C#\Gestion_Note\Gestion_Note\bin\Debug\net10.0\Gestion_Note.runtimeconfig.json
+D:\C#\Gestion_Note\Gestion_Note\bin\Debug\net10.0\Gestion_Note.dll
+D:\C#\Gestion_Note\Gestion_Note\bin\Debug\net10.0\Gestion_Note.pdb
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.AssemblyInfoInputs.cache
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.AssemblyInfo.cs
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.csproj.CoreCompileInputs.cache
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.dll
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\refint\Gestion_Note.dll
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.pdb
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.genruntimeconfig.cache
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\ref\Gestion_Note.dll
