@@ -15,6 +15,14 @@ namespace Gestion_Note.Entity
             this.notes = notes;
         }
 
+        public Etudiant(string nom, string prenom, List<double> notes)
+        {
+            this.matricule = Guid.NewGuid().ToString();
+            this.nom = nom;
+            this.prenom = prenom;
+            this.notes = notes;
+        }
+
 
     }
 }
