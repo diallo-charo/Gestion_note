@@ -9,6 +9,9 @@ namespace Gestion_Note.Service
 
         public static void AjouterEtudiant(Etudiant etudiant)
             {
+                int matricule = etudiants.Count();
+                matricule++;
+                etudiant.matricule = "ISM00" + matricule.ToString();
                 etudiants.Add(etudiant);
             }
 
