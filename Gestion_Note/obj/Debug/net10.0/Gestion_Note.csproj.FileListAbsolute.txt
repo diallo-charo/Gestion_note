@@ -12,3 +12,4 @@ D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\refint\Gestion_Note.dll
 D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.pdb
 D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.genruntimeconfig.cache
 D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\ref\Gestion_Note.dll
+D:\C#\Gestion_Note\Gestion_Note\obj\Debug\net10.0\Gestion_Note.sourcelink.json
