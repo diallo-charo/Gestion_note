@@ -1,28 +1,27 @@
-namespace Gestion_Note.Entity
+namespace Gestion_Note.Entity;
+class Etudiant(string matricule, string nom, string prenom, DateOnly dateNaiss)
 {
-    class Etudiant
+    public string Matricule{get; set;} = matricule;
+    public string Nom{get; set;} = nom;
+    public string Prenom{get; set;} = prenom;
+    public DateOnly DateNaiss {get;set;} = dateNaiss;
+    public int Age
     {
-        public string matricule{get; set;}
-        public string nom{get; set;}
-        public string prenom{get; set;}
-        public List<double> notes{get; set;}
-
-        public Etudiant(string matricule, string nom, string prenom, List<double> notes)
+        get
         {
-            this.matricule = matricule;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.notes = notes;
+            var dateNow  = DateOnly.FromDateTime(DateTime.Today);
+            var age = dateNow.Year - DateNaiss.Year;
+            return age;
         }
+    } 
+    public List<Note> notes{get;} = [];
 
-        public Etudiant(string nom, string prenom, List<double> notes)
-        {
-            this.matricule = Guid.NewGuid().ToString();
-            this.nom = nom;
-            this.prenom = prenom;
-            this.notes = notes;
-        }
-
-
+    public void addNote(Note note)
+    {
+        notes.Add(note);
     }
+
+
+
+
 }
