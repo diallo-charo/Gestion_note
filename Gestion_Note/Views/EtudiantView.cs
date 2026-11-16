@@ -1,36 +1,72 @@
-using Gestion_Note.Entity;
-using Gestion_Note.Service;
+using Gestion_Note.Dto;
+
 
 namespace Gestion_Note.Views
 {
     class EtudiantView
     {
-        public static void AfficherEtudiant(Etudiant etudiant)
-        {
-            Console.WriteLine($"Matricule: {etudiant.matricule}");
-            Console.WriteLine($"Nom: {etudiant.nom}");
-            Console.WriteLine($"Prenom: {etudiant.prenom}");
-            Console.WriteLine("Notes:");
-            foreach (var note in etudiant.notes)
+       
+        public static int Menu() {
+            bool result;
+            int choix;
+            do
             {
-                Console.WriteLine(note);
-            }
+                Console.WriteLine("1. Ajouter un etudiant dans une liste");
+                Console.WriteLine("2. Afficher la liste des étudiants");
+                Console.WriteLine("3. Ajouter une note a un etudiant");
+                Console.WriteLine("4. Lister les notes d'un etudiant");
+                Console.WriteLine("0. Quitter");
+                Console.WriteLine("Saisir votre choix : ");
+                result = int.TryParse(Console.ReadLine(), out choix);
+            } while (!result);
+            return choix;
         }
+        // public static void AfficherEtudiant(Etudiant etudiant)
+        // {
+        //     Console.WriteLine($"Matricule: {etudiant.matricule}");
+        //     Console.WriteLine($"Nom: {etudiant.nom}");
+        //     Console.WriteLine($"Prenom: {etudiant.prenom}");
+        //     Console.WriteLine("Notes:");
+        //     foreach (var note in etudiant.notes)
+        //     {
+        //         Console.WriteLine(note);
+        //     }
+        // }
         
-        public static void AfficherEtudiants(List<Etudiant> etudiants)
-        {
-            foreach (var etudiant in etudiants)
-            {
-                AfficherEtudiant(etudiant);
-                Console.WriteLine("--------------------");
-            }
-        }
+        // public static void AfficherEtudiants(List<Etudiant> etudiants)
+        // {
+        //     foreach (var etudiant in etudiants)
+        //     {
+        //         AfficherEtudiant(etudiant);
+        //         Console.WriteLine("--------------------");
+        //     }
+        // }
 
-        public static Etudiant SaisieEtudiant()
+        public static EtudiantSaisiDto? SaisieEtudiant()
         {
-            string nom = LireChaine("Nom : ");
-            string prenom = LireChaine("Prénom : ");
-            return new Etudiant(nom, prenom, new List<double>());
+            EtudiantSaisiDto? etudiantDto = null;
+            bool valid = false;
+            do
+            {
+                string nomComplet = LireChaine("Nom : ");
+                string dateNaiss = LireChaine("Date de Naissance format dd/MM/yyyy : ");
+                try
+                {
+                    etudiantDto = new EtudiantSaisiDto
+                    {
+                        NomComplet = nomComplet,
+                        DateNaissance = dateNaiss
+                    };
+                    valid = true;
+                }
+                catch (ArgumentException ex)
+                {
+                    
+                    Console.WriteLine(ex.Message);
+                }
+                
+            }while (!valid);
+            return etudiantDto;
         }
 
         private static string LireChaine(string msg)
@@ -46,8 +82,8 @@ namespace Gestion_Note.Views
 
         private static int LireEntier(string msg)
         {
-            bool result = false;
-            int choix = 0;
+            bool result ;
+            int choix ;
             do
             {
                 Console.WriteLine(msg);
@@ -58,8 +94,8 @@ namespace Gestion_Note.Views
 
         private static double LireDouble(string msg)
         {
-            bool result = false;
-            double choix = 0;
+            bool result;
+            double choix;
             do
             {
                 Console.WriteLine(msg);
@@ -68,41 +104,6 @@ namespace Gestion_Note.Views
             return choix;
         }
 
-        public static void MenuEtudiant()
-        {
-            int choix;
-            do
-            {
-                Console.WriteLine("1. Ajouter un étudiant");
-                Console.WriteLine("2. Afficher les étudiants");
-                Console.WriteLine("3. Ajouter une note à un étudiant");
-                Console.WriteLine("4. Quitter");
-                choix = LireEntier("Choix : ");
-                switch (choix)
-                {
-                    case 1:
-                        var etudiant = SaisieEtudiant();
-                        EtudiantService.AjouterEtudiant(etudiant);
-                        break;
-                    case 2:
-                        AfficherEtudiants(EtudiantService.etudiants);
-                        break;
-                    case 3:
-                        string matricule = LireChaine("Matricule de l'étudiant : ");
-                        double note = LireDouble("Note : ");
-                        if (!EtudiantService.AddNote(note, matricule))
-                        {
-                            Console.WriteLine("Le matricule ne correspond à aucun étudiant");
-                        }
-                        break;
-                    case 4:
-                        Console.WriteLine("Au revoir !");
-                        break;
-                    default:
-                        Console.WriteLine("Choix invalide");
-                        break;
-                }
-            } while (choix != 4);
-        }
+        
     }
 }
