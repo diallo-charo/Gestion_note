@@ -1,9 +1,8 @@
 namespace Gestion_Note.Entity;
-class Etudiant(string matricule, string nom, string prenom, DateOnly dateNaiss)
+public class Etudiant(string matricule, string nomComplet, DateOnly dateNaiss)
 {
     public string Matricule{get; set;} = matricule;
-    public string Nom{get; set;} = nom;
-    public string Prenom{get; set;} = prenom;
+    public string NomComplet{get; set;} = nomComplet;
     public DateOnly DateNaiss {get;set;} = dateNaiss;
     public int Age
     {
@@ -20,8 +19,4 @@ class Etudiant(string matricule, string nom, string prenom, DateOnly dateNaiss)
     {
         notes.Add(note);
     }
-
-
-
-
 }
