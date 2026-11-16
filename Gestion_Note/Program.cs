@@ -1,4 +1,5 @@
-﻿using Gestion_Note.Entity;
+﻿using Gestion_Note.Dto;
+using Gestion_Note.Factory;
 using Gestion_Note.Service;
 using Gestion_Note.Views;
 
@@ -6,9 +7,36 @@ class Program
 {
     static void Main(string[] args)
     {
-        EtudiantService.AjouterEtudiant(new Etudiant("Doe", "John", new List<double> { 12.5, 15.0 }));
-        EtudiantService.AjouterEtudiant(new Etudiant("Smith", "Jane", new List<double> { 14.0, 16.5 }));
+        DateService dateService = new DateService();
+        
+        EtudiantService etudiantService = new EtudiantService(RepositoryFactory.CreateRepositoryEtudiant(),dateService);
 
-        EtudiantView.MenuEtudiant();
+        int choix;
+        do
+        {
+           choix =  EtudiantView.Menu();
+           switch (choix)
+           {
+
+            case 0: 
+                Console.WriteLine("A revoir!");
+                break;
+            case 1: 
+                EtudiantSaisiDto? etudiantDto = EtudiantView.SaisieEtudiant();
+                bool result = etudiantService.AddEtudiant(etudiantDto,new MatriculeService());
+                    if (result)
+                    {
+                        Console.WriteLine("Etudiant ajouter avec Success!");
+                    }
+                break;
+            case 2:
+
+                break;
+            
+            default:
+                Console.WriteLine("Choix pas valid");
+                break;
+           }
+        } while (choix!=0);
     }
 }
