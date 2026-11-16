@@ -31,9 +31,3 @@ public record  EtudiantSaisiDto
     }
 }
 
-// public record  EtudiantSaisiDto
-// {
-//     private  readonly string _matricule;
-//     private readonly string _nomComplet;
-//     private readonly DateOnly  _dateNaissance;
-// }
