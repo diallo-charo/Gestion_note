@@ -5,29 +5,27 @@ namespace Gestion_Note.Repository;
 public class EtudiantRepository : IEtudiantRepository
 {
 
-    //Implementation du Singleton
-    private EtudiantRepository(){}
-    private static EtudiantRepository? _instance = null;
-    public static EtudiantRepository? getInstance()
+    private DataBaseRepository _db;
+
+    public EtudiantRepository(DataBaseRepository db)
     {
-        if(_instance is null)
-        {
-            return _instance = new EtudiantRepository();
-        }
-        return _instance;
+        _db = db;
     }
 
-    private List<Etudiant> _etudiants = [];
     public int Compteur {get;private set;} = 1;
 
-    List<Etudiant> IEtudiantRepository.FindAllEtudiant()
+    public void Save(Etudiant etudiant)
     {
-        return _etudiants;
-    }
-
-    void IEtudiantRepository.Save(Etudiant etudiant)
-    {
-        _etudiants.Add(etudiant);
+        _db._etudiants.Add(etudiant);
         Compteur++;
     }
+
+    public List<Etudiant> FindAllEtudiant()
+    {
+        return _db._etudiants;
+    }
+
+    
+
+    
 }
