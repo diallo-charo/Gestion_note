@@ -21,26 +21,26 @@ namespace Gestion_Note.Views
             } while (!result);
             return choix;
         }
-        // public static void AfficherEtudiant(Etudiant etudiant)
-        // {
-        //     Console.WriteLine($"Matricule: {etudiant.matricule}");
-        //     Console.WriteLine($"Nom: {etudiant.nom}");
-        //     Console.WriteLine($"Prenom: {etudiant.prenom}");
-        //     Console.WriteLine("Notes:");
-        //     foreach (var note in etudiant.notes)
-        //     {
-        //         Console.WriteLine(note);
-        //     }
-        // }
+        public static void AfficherEtudiant(EtudiantListDto etudiant)
+        {
+            Console.WriteLine($"Matricule: {etudiant.Matricule}");
+            Console.WriteLine($"NomComplet: {etudiant.NomComplet}");
+            Console.WriteLine($"Date de Naissance: {etudiant.DateNaissance}");
+            // Console.WriteLine("Notes:");
+            // foreach (var note in etudiant.notes)
+            // {
+            //     Console.WriteLine(note);
+            // }
+        }
         
-        // public static void AfficherEtudiants(List<Etudiant> etudiants)
-        // {
-        //     foreach (var etudiant in etudiants)
-        //     {
-        //         AfficherEtudiant(etudiant);
-        //         Console.WriteLine("--------------------");
-        //     }
-        // }
+        public static void AfficherEtudiants(List<EtudiantListDto> etudiants)
+        {
+            foreach (var etudiant in etudiants)
+            {
+                AfficherEtudiant(etudiant);
+                Console.WriteLine("--------------------");
+            }
+        }
 
         public static EtudiantSaisiDto? SaisieEtudiant()
         {
