@@ -45,10 +45,10 @@ namespace Gestion_Note.Views
         public static EtudiantSaisiDto? SaisieEtudiant()
         {
             EtudiantSaisiDto? etudiantDto = null;
+            string nomComplet = LireChaine("NomComplet : ");
             bool valid = false;
             do
             {
-                string nomComplet = LireChaine("Nom : ");
                 string dateNaiss = LireChaine("Date de Naissance format dd/MM/yyyy : ");
                 try
                 {
