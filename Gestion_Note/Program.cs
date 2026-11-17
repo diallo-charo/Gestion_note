@@ -30,7 +30,8 @@ class Program
                     }
                 break;
             case 2:
-
+                List<EtudiantListDto>? etudiantsList = etudiantService.FindAll();
+                EtudiantView.AfficherEtudiants(etudiantsList);
                 break;
             
             default:
