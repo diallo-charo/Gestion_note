@@ -22,7 +22,7 @@ public class EtudiantRepository : IEtudiantRepository
 
     public List<Etudiant> FindAllEtudiant()
     {
-        return _db._etudiants;
+        return [.._db._etudiants]; //la je retourne une copie de la liste etudiant
     }
 
     
