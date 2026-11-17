@@ -5,4 +5,6 @@ namespace Gestion_Note.Service;
 internal interface IEtudiantService
 {
     bool AddEtudiant(EtudiantSaisiDto etudiantSaisiDto,IMatriculeService matriculeService );
+    List<EtudiantListDto>? FindAll();
+    
 }

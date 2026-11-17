@@ -29,4 +29,16 @@ public class EtudiantService : IEtudiantService
         _repository.Save(etudiant);
         return true;
     }
+
+    public List<EtudiantListDto>? FindAll()
+    {
+       var copieEtudiants =  _repository.FindAllEtudiant();
+       List<EtudiantListDto> etudiantsAllDto = [];
+       foreach (var et in copieEtudiants)
+       {
+            EtudiantListDto etudiantListDto = new EtudiantListDto (et.NomComplet,et.DateNaiss,et.Matricule );
+            etudiantsAllDto.Add(etudiantListDto);
+       }
+      return etudiantsAllDto;
+    }
 }
